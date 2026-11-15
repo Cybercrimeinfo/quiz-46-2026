@@ -1,0 +1,248 @@
+<!doctype html>
+<!-- v1.7.0 | 15 nov 2026 -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cybercrimeinfo Quiz - Week 46-2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap');
+:root{--bg:#0a0e17;--surface:#111827;--hover:#1a2234;--border:#1e293b;--accent:#f59e0b;--good:#10b981;--bad:#ef4444;--text:#e2e8f0;--dim:#94a3b8;--muted:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:Outfit,sans-serif;line-height:1.6;min-height:100vh}.container{margin:auto;max-width:800px;padding:2rem 1.5rem}header{text-align:center;border-bottom:1px solid var(--border);margin-bottom:2rem;padding-bottom:2rem}.badge{display:inline-block;background:#f59e0b18;border:1px solid #f59e0b55;border-radius:99px;color:var(--accent);font:700 .75rem 'JetBrains Mono';letter-spacing:.05em;margin-bottom:1rem;padding:.35rem 1rem;text-transform:uppercase}h1{color:var(--accent);font-size:2rem}header p{color:var(--dim);margin-top:.45rem}.progress{background:var(--border);border-radius:3px;height:5px;margin-bottom:1.25rem;overflow:hidden}.progress span{background:var(--accent);display:block;height:100%;transition:width .3s;width:0}.score{text-align:center;color:var(--muted);font:.85rem 'JetBrains Mono';margin-bottom:1.5rem}.score b{color:var(--accent)}.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:1.25rem;padding:1.7rem}.card.good{border-color:var(--good)}.card.bad{border-color:var(--bad)}.number{color:var(--muted);font:.7rem 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase}.question{font-size:1.08rem;font-weight:600;margin:.65rem 0 1.2rem}.options{display:grid;gap:.6rem}.option{width:100%;text-align:left;font:inherit;align-items:center;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;display:flex;gap:.8rem;padding:.8rem 1rem}.option:hover:not(.disabled){background:var(--hover);border-color:var(--accent)}.letter{flex-shrink:0;align-items:center;border:1px solid var(--border);border-radius:4px;color:var(--text);display:flex;font:700 .75rem 'JetBrains Mono';height:24px;justify-content:center;width:24px}.option:focus-visible,.restart:focus-visible{outline:3px solid #7dd3fc;outline-offset:3px}.option.disabled{cursor:default;opacity:.62}.option.correct,.option.wrong{opacity:1}.option.correct{background:#10b98116;border-color:var(--good)}.option.correct .letter{background:var(--good);color:var(--bg)}.option.wrong{background:#ef444416;border-color:var(--bad)}.option.wrong .letter{background:var(--bad);color:var(--bg)}.feedback{border-radius:8px;display:none;font-size:.9rem;margin-top:1rem;padding:.8rem 1rem}.feedback.show{display:block}.feedback.good{background:#10b98116;color:var(--good)}.feedback.bad{background:#ef444416;color:var(--bad)}.results{background:var(--surface);border:1px solid var(--accent);border-radius:12px;display:none;padding:2.5rem 2rem;text-align:center}.results.show{display:block}.final{color:var(--accent);font:700 3rem 'JetBrains Mono';margin:1rem}.restart{background:var(--accent);border:0;border-radius:8px;color:var(--bg);cursor:pointer;font:600 1rem Outfit;padding:.8rem 1.8rem;margin-top:1.25rem}footer{border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;margin-top:2rem;padding:2rem 0;text-align:center}footer a{color:var(--accent)}@media(max-width:600px){.container{padding:1rem}.card{padding:1.2rem}h1{font-size:1.55rem}}
+</style>
+</head>
+<body><main class="container">
+<header><div class="badge">Week 46 &bull; 2026</div><h1>Cybercrime Quiz</h1><p>Weekoverzicht van 7 tot en met 13 november 2026</p><p>Een onderzoek naar de aanvallen op koelinstallaties in Frankrijk, een datalek bij het systeem waarmee veel sportclubs hun leden beheren en een internationale actie tegen malware. Wat weet jij nog van het cybercrimenieuws van deze week? Test je kennis in twintig vragen, met uitleg na elk antwoord.</p></header>
+<div class="progress" role="progressbar" aria-label="Beantwoorde vragen" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0"><span id="progress"></span></div><div class="score">Score: <b id="score">0</b> / <b id="answered">0</b></div><section id="quiz"></section>
+<section class="results" id="results"><h2>Quiz voltooid!</h2><div class="final" id="final"></div><p id="message"></p><button class="restart" onclick="restartQuiz()">Opnieuw spelen</button></section>
+</main><footer>Cybercrimeinfo Quiz WK46-2026 &bull; <a href="https://www.ccinfo.nl">ccinfo.nl</a> &bull; 15 november 2026</footer>
+<script>
+const questions=[
+  {
+    "q": "Het parket van Parijs opende een onderzoek naar de groep Shahid Kaveh, na de aanval op koelinstallaties van 700 locaties in Frankrijk. Van welk land is die cybereenheid?",
+    "options": [
+      "Rusland",
+      "Iran",
+      "Noord-Korea",
+      "China"
+    ],
+    "correct": 1,
+    "explanation": "Shahid Kaveh is een offensieve cybereenheid van de Iraanse Revolutionaire Garde. Bij de aanval in de nacht van 11 op 12 oktober liep de temperatuur in de koelinstallaties op. Volgens het parket leidde dat tot grote voedselverliezen en ongeveer twintig branden. Onderzoekers vonden onder meer het gebruik van Farsi en IP adressen die naar apparaten in Iran wijzen."
+  },
+  {
+    "q": "Bij softwareleverancier AllUnited, waarvan het systeem door Nederlandse sportclubs, verenigingen en bonden wordt gebruikt, is een datalek ontstaan. Hoe kwam de aanvaller volgens AllUnited binnen?",
+    "options": [
+      "Via het inschrijfformulier op een clubwebsite",
+      "Via een phishingmail aan een clubbestuurder",
+      "Via een lek in de betaalmodule van de app",
+      "Via een gestolen laptop van een beheerder"
+    ],
+    "correct": 0,
+    "explanation": "Via dat formulier kreeg de aanvaller toegang tot een server van AllUnited en kopieerde hij gegevens uit de database. Tijdelijke wachtwoorden die leden nog niet hadden veranderd, stonden leesbaar opgeslagen. Clubs en bonden moeten het lek volgens AllUnited zelf binnen 72 uur na de mail van AllUnited melden bij de Autoriteit Persoonsgegevens."
+  },
+  {
+    "q": "Het Centre for Cybersecurity Belgium waarschuwde voor twee kritieke lekken in WS_FTP Server. Van welk bedrijf is die software?",
+    "options": [
+      "Citrix",
+      "Fortinet",
+      "Ivanti",
+      "Progress"
+    ],
+    "correct": 3,
+    "explanation": "Het lek CVE-2026-84295 heeft een CVSS score van 10 en maakt het mogelijk de authenticatie te omzeilen. Via het tweede lek, CVE-2026-90868, kan een aanvaller na het inloggen commando's op het systeem uitvoeren. Volgens het CCB werden vergelijkbare lekken in dit product eerder actief misbruikt, het raadt aan de updates met de hoogste prioriteit te installeren."
+  },
+  {
+    "q": "Beveiligingsbedrijf Island vond 186 nagemaakte domeinen van AI diensten zoals ChatGPT, DeepSeek en Perplexity. Hoe noemt Island dit verschijnsel?",
+    "options": [
+      "PromptJacking",
+      "AI Squatting",
+      "DeepPhishing",
+      "TypoPrompting"
+    ],
+    "correct": 3,
+    "explanation": "Island vond die domeinen bij 27 merken van AI diensten. Een tikfout kan leiden naar een ClickFix lokpagina die de bezoeker een verborgen PowerShell commando laat uitvoeren, naar malware die de browser overneemt of naar een extensie die de zoekmachine kaapt. Controleer dus goed de schrijfwijze van het adres."
+  },
+  {
+    "q": "Politie en justitie haalden met steun van Europol en Eurojust de infrastructuur van de malware Gootloader, CastleRAT en StealC offline. Bij welke internationale operatie hoorde die actie?",
+    "options": [
+      "Operation Cronos",
+      "Operation Endgame",
+      "Operation Magnus",
+      "Operation Duck Hunt"
+    ],
+    "correct": 1,
+    "explanation": "Bij de actie werden samen met private partijen 235 servers en 257 domeinen aangepakt. Op de in beslag genomen infrastructuur zijn miljoenen inloggegevens gevonden. Ook de Nederlandse politie deed mee."
+  },
+  {
+    "q": "Bij cadeaubonnendienst Bongo is op 3 november ingebroken. Onder welke andere naam is Bongo ook actief?",
+    "options": [
+      "Giftbox",
+      "Dagjebox",
+      "Belevenisbox",
+      "Smartbox"
+    ],
+    "correct": 3,
+    "explanation": "Volgens Bongo kunnen namen en e-mailadressen van klanten zijn ingezien, maar geen wachtwoorden of betaalgegevens. Klanten krijgen voor de zekerheid nieuwe activeringscodes voor geldige bonnen. Hoe de aanvallers binnenkwamen, zegt het bedrijf niet."
+  },
+  {
+    "q": "Google dichtte CVE-2026-125350, een lek in Chrome dat actief werd misbruikt voordat er een update was. Het hoeveelste actief misbruikte Chromelek van 2026 was dat?",
+    "options": [
+      "Het tweede",
+      "Het vijfde",
+      "Het achtste",
+      "Het twaalfde"
+    ],
+    "correct": 2,
+    "explanation": "Het lek is een fout van het type use after free in de verwerking van XML. Google bevestigt dat er exploits in omloop zijn, maar deelt nog geen details over het misbruik. Je kunt Chrome ook zelf meteen bijwerken via de instellingen."
+  },
+  {
+    "q": "ESET ontdekte nieuwe malware van de Russische groep Turla, gericht op mailservers van overheden. Hoe heet die malware?",
+    "options": [
+      "Inkwell",
+      "Ironclad",
+      "PostBox",
+      "Cereal"
+    ],
+    "correct": 3,
+    "explanation": "Cereal draait op Microsoft Exchange servers en verstopt zich in legitieme processen van Exchange. ESET vond de malware bij een overheidsinstantie in Kazachstan en bij een overheidsorganisatie in Roemenië, waar het onderdeel CerealBox was ingesteld op mail over de NAVO en instellingen van de Europese Unie. Turla wordt gezien als onderdeel van de Russische geheime dienst FSB."
+  },
+  {
+    "q": "Bij Quantum Systems is ingebroken door vijandige actoren, maakte het bedrijf deze week bekend. Wat maakt dit Duitse bedrijf?",
+    "options": [
+      "Drones voor defensie",
+      "Pantservoertuigen voor het leger",
+      "Satellieten voor communicatie",
+      "Munitie voor artillerie"
+    ],
+    "correct": 0,
+    "explanation": "Quantum Systems maakt drones en andere onbemande systemen voor defensie en ontdekte het incident eind oktober. Volgens het bedrijf is de dreiging ingedamd en is er geen risico voor gebruikers van zijn onbemande systemen. Het noemt geen dader, maar wijst erop dat bedrijven die vooroplopen in de steun aan Oekraïne juist daarom worden aangevallen."
+  },
+  {
+    "q": "Bij Operation TorNado werden 354 verkopers en kopers van darkwebmarkten aangehouden. Hoeveel van die aanhoudingen waren in Nederland?",
+    "options": [
+      "5",
+      "12",
+      "27",
+      "64"
+    ],
+    "correct": 1,
+    "explanation": "De operatie onder coördinatie van Europol liep van mei 2025 tot oktober 2026, met politie en justitie uit 14 landen. In de Verenigde Staten werden 132 mensen aangehouden. Volgens Europol passen darkwebmarkten zich na zulke acties steeds weer aan, onder meer doordat criminelen snel naar nieuwe platforms overstappen."
+  },
+  {
+    "q": "De Belgische federale regering lanceert een nationaal actieplan tegen online fraude. Hoeveel maatregelen telt dat plan?",
+    "options": [
+      "9",
+      "19",
+      "29",
+      "49"
+    ],
+    "correct": 2,
+    "explanation": "De ministers Rob Beenders en Bernard Quintin werken daarvoor samen met banken, telecomoperatoren, onlineplatformen, politie en parket. Itsme krijgt een extra beveiliging met gezichtscontrole, en het project Phish Nemo, dat frauduleuze websites opspoort, wordt uitgebreid naar heel België."
+  },
+  {
+    "q": "Een klant van ASN maakte na bankhelpdeskfraude 33.500 euro over en vroeg de bank om vergoeding. Welke instantie wees die vordering af?",
+    "options": [
+      "De kantonrechter",
+      "Het Kifid",
+      "De Geschillencommissie",
+      "De Nationale ombudsman"
+    ],
+    "correct": 1,
+    "explanation": "Het klachteninstituut Kifid wees de vordering af. De oplichter liet de klant AnyDesk en de app Deblock installeren. Het geld ging naar een Belgische rekening en een Franse rekening bij Deblock, niet naar een zogenaamde veilige rekening bij de eigen bank. Volgens het Kifid is niet komen vast te staan dat ASN haar zorgplicht heeft geschonden."
+  },
+  {
+    "q": "PostgreSQL bracht op 12 november updates uit voor alle ondersteunde versies van de database. Hoeveel beveiligingslekken verhelpen die updates?",
+    "options": [
+      "52",
+      "64",
+      "81",
+      "96"
+    ],
+    "correct": 0,
+    "explanation": "De updates verhelpen daarnaast meer dan 140 gewone bugs. Onder de gedichte lekken zijn fouten in pg_restore en pg_dump met een CVSS score van 8.8. Versie 14.25 is de laatste uitgave van PostgreSQL 14, die nu aan het einde van haar levensduur is. PostgreSQL vraagt gebruikers over te stappen op een nieuwere, ondersteunde versie."
+  },
+  {
+    "q": "Oplichters mailen namens Rabobank dat de daglimiet van de betaalrekening is verhoogd naar 28.000 euro. Wat wil de mail dat de ontvanger doet?",
+    "options": [
+      "Een beveiligingsapp installeren",
+      "Direct een telefoonnummer bellen",
+      "Inloggen via een link in de mail",
+      "Een klein betaalverzoek betalen"
+    ],
+    "correct": 1,
+    "explanation": "Wie de wijziging niet zelf heeft gedaan, moet volgens de mail direct een nummer bellen dat niet van Rabobank is. Volgens Rabobank spreekt de bank klanten in echte berichten met hun naam aan en zet zij geen telefoonnummer in zulke berichten. Twijfel je, log dan zelf in via de officiële website of de Rabo App."
+  },
+  {
+    "q": "Igor Taro, in Estland verantwoordelijk voor Binnenlandse Zaken, vindt 'hybride' een te zacht woord voor Russische sabotage en cyberaanvallen. Hoe moeten die volgens hem worden behandeld?",
+    "options": [
+      "Als oorlogsmisdaden",
+      "Als misdaden tegen de menselijkheid",
+      "Als conventionele militaire agressie",
+      "Als staatsterrorisme"
+    ],
+    "correct": 3,
+    "explanation": "Volgens Taro gaat het om door de staat gesteund terrorisme. Hij deed die uitspraak in een interview met de Financial Times. Volgens hem valt Rusland Europa voortdurend aan onder de drempel van conventionele militaire agressie. Wie achter de aanvallen op koelsystemen van supermarkten in onder meer Estland zit, is volgens hem nog niet duidelijk."
+  },
+  {
+    "q": "Een voormalige supervisor van de FBI bekende diefstal van miljoenen dollars aan crypto. Waar haalde hij dat geld vandaan?",
+    "options": [
+      "Uit cryptowallets uit onderzoeken van de FBI",
+      "Uit de pensioenkas van medewerkers van de FBI",
+      "Van een gehackte cryptobeurs in het buitenland",
+      "Uit losgeld dat ransomwaregroepen hadden geïnd"
+    ],
+    "correct": 0,
+    "explanation": "Volgens de beëdigde verklaring had Patrick Steven Yaroch toegang tot systemen met de seed phrases van wallets van personen tegen wie de FBI een onderzoek voerde. Hij deed ongeveer 100 overboekingen met inloggegevens uit 35 onderzoeken. Op 5 november bekende hij schuld aan draadfraude en witwassen, nadat hij zichzelf had gemeld."
+  },
+  {
+    "q": "Mozilla bracht op 10 november Firefox 160 uit. Hoeveel kwetsbaarheden verhelpt die versie?",
+    "options": [
+      "19",
+      "45",
+      "99",
+      "140"
+    ],
+    "correct": 2,
+    "explanation": "Mozilla geeft 57 ervan de ernst hoog, 24 gemiddeld en 18 laag. Onder de lekken zijn meerdere fouten waarmee een aanvaller uit de sandbox kan breken. Het advies MFSA 2026-125 noemt geen misbruik, maar bijwerken blijft verstandig."
+  },
+  {
+    "q": "De Japanse stad Osaka meldde een lek van ruim een miljoen e-mailadressen na een inbraak bij de maildienst Arara. Hoeveel e-mailadressen zijn volgens Arara bij al zijn klanten samen blootgesteld?",
+    "options": [
+      "9 miljoen",
+      "23 miljoen",
+      "77 miljoen",
+      "140 miljoen"
+    ],
+    "correct": 2,
+    "explanation": "Volgens Arara gaat het om 77 miljoen adressen van bijna 400 klanten, onder wie TKC, de leverancier van het online systeem van Osaka, en Sega. Bij Osaka gaat het om 1.078.713 adressen. De stad waarschuwt voor verdachte e-mails die van Osaka lijken te komen."
+  },
+  {
+    "q": "Het FORGE Lab van Microsoft scande delen van de Linuxkernel met een AI systeem. Hoeveel openbare meldingen aan de ontwikkelaars van de kernel leverde dat tot nu toe op?",
+    "options": [
+      "9",
+      "27",
+      "59",
+      "112"
+    ],
+    "correct": 2,
+    "explanation": "Het AI systeem heeft de codenaam MDASH. De meldingen leverden 33 toegekende CVE's op, voor acht daarvan bestaat volgens Microsoft een werkende exploit waarmee een lokale aanvaller rootrechten kan krijgen. De gemelde fouten zaten gemiddeld ruim acht jaar in de kernel."
+  },
+  {
+    "q": "De Ierse privacytoezichthouder DPC gaf het bedrijf achter een datingapp een boete van 11 miljoen euro. Om welke app gaat het?",
+    "options": [
+      "Tinder",
+      "Bumble",
+      "Badoo",
+      "Grindr"
+    ],
+    "correct": 0,
+    "explanation": "Volgens de DPC gaf de tool Download My Data gebruikers niet al hun persoonsgegevens, terwijl Tinder die tool presenteerde als manier om een kopie van de eigen gegevens op te vragen. Daarmee voldeed de tool niet aan het recht op inzage uit de AVG. Het bedrijf MTCH moet de verwerking binnen drie maanden aanpassen."
+  }
+];questions.forEach(question=>{Object.freeze(question.options);Object.freeze(question)});Object.freeze(questions);
+let score=0,answered=0;const letters=['A','B','C','D'];
+function render(){const root=document.getElementById('quiz');root.innerHTML='';score=0;answered=0;update();questions.forEach((q,i)=>{const card=document.createElement('article');card.className='card';card.id='q'+i;card.innerHTML='<div class="number">Vraag '+(i+1)+' van '+questions.length+'</div><div class="question">'+q.q+'</div><div class="options">'+q.options.map((o,j)=>'<button class="option" id="q'+i+'o'+j+'" onclick="answer('+i+','+j+')"><span class="letter">'+letters[j]+'</span><span>'+o+'</span></button>').join('')+'</div><div class="feedback" aria-live="polite" id="fb'+i+'"></div>';root.appendChild(card)})}
+function answer(i,j){const q=questions[i],card=document.getElementById('q'+i);if(card.dataset.done)return;card.dataset.done='1';answered++;const ok=j===q.correct;if(ok)score++;q.options.forEach((_,k)=>{const el=document.getElementById('q'+i+'o'+k);el.classList.add('disabled');el.disabled=true;if(k===q.correct)el.classList.add('correct');if(k===j&&!ok)el.classList.add('wrong')});card.classList.add(ok?'good':'bad');const fb=document.getElementById('fb'+i);fb.className='feedback show '+(ok?'good':'bad');fb.textContent=(ok?'✓ Goed! ':'✗ Fout. ')+q.explanation;update();if(answered===questions.length)setTimeout(showResults,500)}
+function update(){document.getElementById('score').textContent=score;document.getElementById('answered').textContent=answered;document.querySelector('[role=progressbar]').setAttribute('aria-valuenow',answered);document.getElementById('progress').style.width=(answered/questions.length*100)+'%'}
+function showResults(){const r=document.getElementById('results');r.classList.add('show');document.getElementById('final').textContent=score+' / '+questions.length;document.getElementById('message').textContent=score===20?'Perfect, alle vragen goed!':score>=16?'Uitstekend, je bent goed op de hoogte.':score>=12?'Goed gedaan, veel onderwerpen zijn bekend.':'Lees de weekoverzichten nog eens terug en probeer opnieuw.';r.scrollIntoView({behavior:'smooth'})}
+function restartQuiz(){document.getElementById('results').classList.remove('show');render();scrollTo({top:0,behavior:'smooth'})}render();
+</script></body></html>
